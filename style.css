@@ -1,0 +1,93 @@
+:root{
+  --naranja:#FF7A1A; --naranja-claro:#FFE3CC;
+  --azul:#0E3A8C; --azul-oscuro:#08224f;
+  --verde:#1FAE6B; --verde-claro:#D9F5E7;
+  --papel:#FFFaf4; --tinta:#14213d;
+  --display:"Fredoka","Trebuchet MS",system-ui,sans-serif;
+  --texto:"Nunito","Segoe UI",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--texto);color:var(--tinta);background:var(--papel);line-height:1.55;
+  -webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+h1,h2,h3{font-family:var(--display);line-height:1.1}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--naranja);outline-offset:3px}
+
+.top{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;
+  padding:.6rem clamp(1rem,4vw,3rem);background:rgba(255,250,244,.92);backdrop-filter:blur(8px);border-bottom:3px solid var(--naranja)}
+.marca img{height:46px;width:auto;display:block}
+.marca{font-family:var(--display);font-weight:700;font-size:1.4rem;color:var(--azul)}
+nav{display:flex;gap:clamp(.8rem,3vw,2rem);font-weight:800}
+nav a:hover{color:var(--naranja)}
+
+.hero{background:var(--azul);color:#fff;text-align:center;padding:clamp(3rem,9vw,6rem) 1.2rem 5rem;
+  position:relative;overflow:hidden;border-radius:0 0 50% 50% / 0 0 40px 40px}
+.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;z-index:0}
+.hero::before{width:300px;height:300px;background:var(--naranja);opacity:.9;left:-110px;top:-80px}
+.hero::after{width:240px;height:240px;background:var(--verde);right:-80px;bottom:-90px}
+.hero>*{position:relative;z-index:1}
+.chip{display:inline-block;background:var(--verde);color:#fff;font-weight:800;padding:.35rem 1rem;border-radius:99px;margin-bottom:1.2rem}
+.hero h1{font-size:clamp(2rem,6vw,3.8rem);margin-bottom:1.1rem}
+.sub{max-width:560px;margin:0 auto 1.8rem;font-size:1.1rem;opacity:.95}
+
+.btn{display:inline-block;cursor:pointer;background:var(--naranja);color:#fff;font-weight:800;font-size:1.05rem;
+  padding:.9rem 1.6rem;border-radius:99px;box-shadow:0 5px 0 #c85a08;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(2px);box-shadow:0 3px 0 #c85a08}
+
+.galeria{padding:3.5rem 0 2rem}
+.bloque{margin-bottom:2.8rem}
+.bloque h2{font-size:clamp(1.6rem,4vw,2.2rem);color:var(--azul);padding:0 clamp(1rem,4vw,3rem);margin-bottom:1rem}
+.bloque:nth-child(1) h2{border-left:8px solid var(--naranja);margin-left:clamp(1rem,4vw,3rem);padding-left:.8rem}
+.bloque:nth-child(2) h2{border-left:8px solid var(--verde);margin-left:clamp(1rem,4vw,3rem);padding-left:.8rem}
+.bloque:nth-child(3) h2{border-left:8px solid var(--azul);margin-left:clamp(1rem,4vw,3rem);padding-left:.8rem}
+
+.carrusel{overflow:hidden;padding:.6rem 0;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.pista{display:flex;width:max-content;animation:mover var(--vel,40s) linear infinite}
+.carrusel.der .pista{animation-direction:reverse}
+.carrusel:hover .pista{animation-play-state:paused}
+@keyframes mover{to{transform:translateX(-50%)}}
+.foto{position:relative;flex:none;margin-right:1.1rem;border-radius:18px;overflow:hidden;
+  border:5px solid #fff;box-shadow:0 8px 20px rgba(14,58,140,.22);background:var(--naranja-claro)}
+.foto canvas{display:block;height:clamp(220px,34vw,340px);width:auto;pointer-events:none}
+.foto::after{content:"";position:absolute;inset:0}
+.vacio{padding:1.5rem clamp(1rem,4vw,3rem);color:var(--azul);font-weight:600}
+.aviso-foto{text-align:center;font-size:.9rem;padding:0 1rem;opacity:.75}
+
+.paquetes{background:var(--verde-claro);padding:4rem clamp(1rem,4vw,3rem)}
+.paquetes>h2,.como>h2{text-align:center;font-size:clamp(1.8rem,5vw,2.6rem);color:var(--azul);margin-bottom:2rem}
+.grid-paq{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.6rem;max-width:960px;margin:0 auto;align-items:stretch}
+.paq{position:relative;background:#fff;border-radius:26px;padding:2rem 1.7rem;display:flex;flex-direction:column;
+  border:4px solid var(--verde);box-shadow:0 10px 0 rgba(31,174,107,.25)}
+.paq.destacado{border-color:var(--naranja);box-shadow:0 10px 0 rgba(255,122,26,.3)}
+.cinta{position:absolute;top:-16px;right:20px;background:var(--naranja);color:#fff;font-weight:800;padding:.3rem 1rem;border-radius:99px}
+.paq h3{font-size:1.7rem;color:var(--azul)}
+.precio{font-family:var(--display);font-size:2.6rem;font-weight:700;color:var(--naranja);margin:.3rem 0}
+.precio small{font-family:var(--texto);font-size:1rem;color:var(--tinta);font-weight:600}
+.paq ul{margin:1rem 0 1.5rem;padding-left:1.2rem;flex:1}
+.paq li{margin-bottom:.7rem}
+.paq .btn{text-align:center}
+
+.como{padding:4rem clamp(1rem,4vw,3rem)}
+.como ol{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.4rem;max-width:960px;margin:0 auto;counter-reset:p}
+.como li{counter-increment:p;background:#fff;border-radius:22px;padding:1.6rem 1.4rem;border:3px solid var(--azul-oscuro)}
+.como li::before{content:counter(p);display:grid;place-items:center;width:44px;height:44px;border-radius:50%;
+  background:var(--azul);color:#fff;font-family:var(--display);font-weight:700;font-size:1.3rem;margin-bottom:.8rem}
+.como li:nth-child(1)::before{background:var(--naranja)}
+.como li:nth-child(2)::before{background:var(--verde)}
+.como li b{display:block;font-family:var(--display);font-size:1.25rem;color:var(--azul);margin-bottom:.3rem}
+
+footer{background:var(--azul-oscuro);color:#dbe6ff;text-align:center;padding:2rem 1.2rem 5.5rem;font-size:.9rem}
+footer p+p{max-width:640px;margin:.6rem auto 0;opacity:.8}
+
+.wa-flotante{position:fixed;right:18px;bottom:18px;z-index:30;width:60px;height:60px;border-radius:50%;background:#25D366;
+  display:grid;place-items:center;cursor:pointer;box-shadow:0 6px 16px rgba(0,0,0,.3);animation:latido 2.4s ease-in-out infinite}
+@keyframes latido{50%{transform:scale(1.08)}}
+
+/* Protección: se difumina la galería si la ventana pierde el foco y no se imprime */
+body.oculto .galeria{filter:blur(32px);transition:filter .1s}
+@media print{body *{display:none!important}}
+@media (prefers-reduced-motion:reduce){.pista,.wa-flotante{animation:none}.carrusel{overflow-x:auto}}
+@media (max-width:560px){nav a:first-child{display:none}.marca img{height:38px}}
