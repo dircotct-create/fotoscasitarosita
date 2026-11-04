@@ -41,7 +41,7 @@ async function armarCarrusel(caja, logo) {
   const cargadas = (await Promise.all(numeros.map(n => cargar(`${CARPETA}foto${n}.jpg`)))).filter(Boolean);
 
   if (!cargadas.length) {
-    caja.innerHTML = `<p class="vacio">Agrega las fotos foto${desde}.jpg a foto${hasta}.jpg en la carpeta “${CARPETA}”.</p>`;
+    caja.innerHTML = `<p class="vacio">Agrega las fotos foto${desde}.JPG a foto${hasta}.JPG en la carpeta “${CARPETA}”.</p>`;
     return;
   }
   caja.classList.add(caja.dataset.dir === "der" ? "der" : "izq");
